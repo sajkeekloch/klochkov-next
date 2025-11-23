@@ -1,0 +1,1 @@
+export const heroText = "Frontend разработчик с 4+ годами опыта, специализируюсь на React, TypeScript создаю современные веб-приложения."

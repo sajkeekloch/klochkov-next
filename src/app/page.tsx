@@ -1,11 +1,11 @@
 import type { Metadata } from 'next'
-import Main from '@/components/Main/Main'
+import { HomePage } from '@/pages/HomePage'
 
 export const metadata: Metadata = {
-  title: 'Klochkov - Portfolio',
+  title: 'клочков',
   description: 'Personal portfolio website',
 }
 
 export default function Home() {
-  return <Main />
+  return <HomePage />
 }
