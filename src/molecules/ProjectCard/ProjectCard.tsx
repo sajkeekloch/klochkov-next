@@ -3,6 +3,7 @@
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
 import { useTheme } from '../../hooks/useTheme'
+import { useLanguage } from '../../hooks/useLanguage'
 import { Tag } from '../../atoms/Tag'
 import { Link } from '../../atoms/Link'
 import type { Project } from '../../types'
@@ -15,9 +16,13 @@ const Card = styled(motion.div)<{ $isDark: boolean }>`
   background: ${({ $isDark, theme }) => $isDark ? theme.colors.dark.cardBackground : theme.colors.light.cardBackground};
   padding: 40px;
   border-radius: 4px;
-  margin-bottom: 30px;
   transition: all 0.3s ease;
   border: 1px solid ${({ $isDark, theme }) => $isDark ? theme.colors.dark.border : theme.colors.light.border};
+  display: flex;
+  flex-direction: column;
+  min-height: 400px;
+  height: 100%;
+  width: 100%;
 
   &:hover {
     transform: translateY(-5px);
@@ -50,10 +55,12 @@ const TechTags = styled.div`
 const Links = styled.div`
   display: flex;
   gap: 20px;
+  margin-top: auto;
 `
 
 export function ProjectCard({ project }: ProjectCardProps) {
   const { isDark } = useTheme()
+  const { t } = useLanguage()
 
   return (
     <Card
@@ -73,12 +80,12 @@ export function ProjectCard({ project }: ProjectCardProps) {
       <Links>
         {project.link && (
           <Link target='_blank' href={project.link} variant="project">
-            Подробнее →
+            {t('projects.viewProject')}
           </Link>
         )}
         {project.github && (
           <Link target='_blank' href={project.github} variant="project">
-            GitHub →
+            {t('projects.viewGithub')}
           </Link>
         )}
       </Links>

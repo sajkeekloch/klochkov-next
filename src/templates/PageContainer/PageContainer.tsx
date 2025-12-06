@@ -2,7 +2,8 @@ import styled from 'styled-components'
 import { motion } from 'framer-motion'
 
 export const PageContainer = styled(motion.section)`
-    height: 100vh;
+    height: 100dvh;
+    min-height: 100vh;
     width: 900px;
     display: flex;
     gap: 25px;
@@ -11,4 +12,8 @@ export const PageContainer = styled(motion.section)`
     box-sizing: border-box;
     scroll-snap-align: start;
     scroll-snap-stop: always;
+
+    ${({ theme }) => theme.media.tablet} {
+        width: 100%;
+    }
 `

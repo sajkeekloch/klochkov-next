@@ -3,8 +3,10 @@
 import styled from 'styled-components'
 import { motion, useScroll } from 'framer-motion'
 import { useTheme } from '@/hooks/useTheme'
+import { useLanguage } from '@/hooks/useLanguage'
 import { NavItem } from '@/molecules/NavItem'
 import { ThemeToggle } from '@/molecules/ThemeToggle'
+import { LanguageToggle } from '@/molecules/LanguageToggle'
 import { useState, useEffect } from 'react'
 
 const Nav = styled(motion.nav)<{ $isDark: boolean; $scrolled: boolean }>`
@@ -44,17 +46,18 @@ const NavList = styled.ul`
   }
 `
 
-const navItems = [
-  { href: '#about', label: 'привет' },
-  { href: '#skills', label: 'навыки' },
-  { href: '#projects', label: 'проекты' },
-  { href: '#contact', label: 'контакты' },
-]
-
 export function Navigation() {
   const { isDark } = useTheme()
+  const { t } = useLanguage()
   const { scrollY } = useScroll()
   const [scrolled, setScrolled] = useState(false)
+
+  const navItems = [
+    { href: '#about', label: t('navigation.about') },
+    { href: '#skills', label: t('navigation.skills') },
+    { href: '#projects', label: t('navigation.projects') },
+    { href: '#contact', label: t('navigation.contact') },
+  ]
 
   useEffect(() => {
     return scrollY.on('change', (latest) => {
@@ -77,6 +80,9 @@ export function Navigation() {
             {item.label}
           </NavItem>
         ))}
+        <li>
+          <LanguageToggle />
+        </li>
         <li>
           <ThemeToggle />
         </li>

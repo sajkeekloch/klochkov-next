@@ -3,7 +3,7 @@
 import { Navigation } from '../../organisms/Navigation'
 import { Hero } from '../../organisms/Hero'
 import { SkillsGrid } from '../../organisms/SkillsGrid'
-import { ProjectsList } from '../../organisms/ProjectsList'
+import { ProjectsCarousel } from '../../organisms/ProjectsCarousel'
 import { ContactSection } from '../../organisms/ContactSection'
 import styled from 'styled-components'
 
@@ -32,7 +32,7 @@ export function MainTemplate() {
         {/*<CodeBackground />*/}
         <Hero />
         <SkillsGrid />
-        <ProjectsList />
+        <ProjectsCarousel />
         <ContactSection />
       </Container>
     </>

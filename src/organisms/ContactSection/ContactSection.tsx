@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 import { SectionTitle } from '@/molecules/SectionTitle'
 import { Text } from '@/atoms/Text'
 import { Button } from '@/atoms/Button'
+import { useLanguage } from '@/hooks/useLanguage'
 import { fadeInUp } from '@/utils/animations'
 import { PageContainer } from '@/templates/PageContainer'
 
@@ -12,9 +13,10 @@ const ContactSectionWrapper = styled(PageContainer)`
   margin: 0 auto;
   position: relative;
   z-index: 1;
+  justify-content: center;
 
   ${({ theme }) => theme.media.tablet} {
-    padding: 80px 20px;
+    padding: 100px 20px 20px;
   }
 `
 
@@ -44,9 +46,11 @@ const ContactButton = styled(Button)`
 `
 
 export function ContactSection() {
+  const { t } = useLanguage()
+
   return (
     <ContactSectionWrapper id='contact'>
-      <SectionTitle number='3'>Связаться</SectionTitle>
+      <SectionTitle number='3'>{t('contact.title')}</SectionTitle>
       <ContactContent
         initial='initial'
         whileInView='animate'
@@ -54,25 +58,21 @@ export function ContactSection() {
         variants={fadeInUp}
       >
         <Text variant='paragraph'>
-          Я всегда открыт для обсуждения новых проектов, креативных идей или
-          возможностей стать частью вашей команды.
+          {t('contact.description')}
         </Text>
         <ContactMethods>
           <ContactButton href='https://t.me/sajkeekloch'>
-            {/*<MessageCircle size={20} color="#14A5EB" />*/}
-            Telegram
+            {t('contact.telegram')}
           </ContactButton>
           <ContactButton href='mailto:sajkeekloch@gmail.com'>
-            {/*<Mail size={20} color="#EB5A14" />*/}
-            Email
+            {t('contact.email')}
           </ContactButton>
           <ContactButton
             href='https://www.linkedin.com/in/sajkeekloch/'
             target='_blank'
             rel='noopener noreferrer'
           >
-            {/*<Linkedin size={20} color="#14A5EB" />*/}
-            LinkedIn
+            {t('contact.linkedin')}
           </ContactButton>
         </ContactMethods>
       </ContactContent>
