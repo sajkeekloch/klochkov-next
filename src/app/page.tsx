@@ -1,9 +1,9 @@
-import type { Metadata } from 'next'
 import { HomePage } from '@/pages/HomePage'
+import { heroText } from '@/constants/heroText'
 
-export const metadata: Metadata = {
-  title: 'клочков',
-  description: 'Personal portfolio website',
+export const metadata = {
+  title: 'Александр Клочков - Frontend Developer',
+  description: heroText,
 }
 
 export default function Home() {
