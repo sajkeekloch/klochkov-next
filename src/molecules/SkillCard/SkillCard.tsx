@@ -18,13 +18,17 @@ const Card = styled(motion.div)<{ $isDark: boolean }>`
 
   &:hover {
     transform: translateY(-5px);
-    border-color: ${({ theme }) => theme.colors.light.primary};
-    box-shadow: 0 10px 30px ${({ theme }) => theme.colors.light.shadow};
+    border-color: ${({ $isDark, theme }) => $isDark ? theme.colors.dark.primary : theme.colors.light.primary};
+    box-shadow: 0 10px 30px ${({ $isDark, theme }) => $isDark ? theme.colors.dark.shadow : theme.colors.light.shadow};
+  }
+
+  ${({ theme }) => theme.media.mobile} {
+    padding: 20px;
   }
 `
 
-const SkillName = styled.div`
-  color: ${({ theme }) => theme.colors.light.primary};
+const SkillName = styled.div<{ $isDark: boolean }>`
+  color: ${({ $isDark, theme }) => $isDark ? theme.colors.dark.primary : theme.colors.light.primary};
   font-size: ${({ theme }) => theme.typography.fontSizes.lg};
   margin-bottom: 15px;
   font-weight: ${({ theme }) => theme.typography.fontWeights.semibold};
@@ -36,7 +40,7 @@ const SkillList = styled.ul<{ $isDark: boolean }>`
   font-size: ${({ theme }) => theme.typography.fontSizes.md};
 `
 
-const SkillItem = styled.li`
+const SkillItem = styled.li<{ $isDark: boolean }>`
   margin-bottom: 8px;
   padding-left: 20px;
   position: relative;
@@ -45,7 +49,7 @@ const SkillItem = styled.li`
     content: '▹';
     position: absolute;
     left: 0;
-    color: ${({ theme }) => theme.colors.light.secondary};
+    color: ${({ $isDark, theme }) => $isDark ? theme.colors.dark.secondary : theme.colors.light.secondary};
   }
 `
 
@@ -60,10 +64,10 @@ export function SkillCard({ skill }: SkillCardProps) {
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
     >
-      <SkillName>{skill.name}</SkillName>
+      <SkillName $isDark={isDark}>{skill.name}</SkillName>
       <SkillList $isDark={isDark}>
         {skill.items.map((item, index) => (
-          <SkillItem key={index}>{item}</SkillItem>
+          <SkillItem key={index} $isDark={isDark}>{item}</SkillItem>
         ))}
       </SkillList>
     </Card>

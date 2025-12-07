@@ -19,6 +19,14 @@ const H1 = styled.h1<{ $isDark: boolean }>`
   ${({ theme }) => theme.media.tablet} {
     font-size: ${({ theme }) => theme.typography.fontSizes['4xl']};
   }
+
+  ${({ theme }) => theme.media.mobile} {
+    font-size: ${({ theme }) => theme.typography.fontSizes['3xl']};
+  }
+
+  ${({ theme }) => theme.media.mobileSm} {
+    font-size: ${({ theme }) => theme.typography.fontSizes['2xl']};
+  }
 `
 
 const H2 = styled.h2<{ $isDark: boolean }>`
@@ -26,14 +34,23 @@ const H2 = styled.h2<{ $isDark: boolean }>`
   color: ${({ $isDark, theme }) => $isDark ? theme.colors.dark.textSecondary : theme.colors.light.textSecondary};
   font-weight: ${({ theme }) => theme.typography.fontWeights.semibold};
   line-height: ${({ theme }) => theme.typography.lineHeights.tight};
-    width: min-content;
+  width: min-content;
+
   ${({ theme }) => theme.media.tablet} {
     font-size: ${({ theme }) => theme.typography.fontSizes['4xl']};
   }
+
+  ${({ theme }) => theme.media.mobile} {
+    font-size: ${({ theme }) => theme.typography.fontSizes['3xl']};
+  }
+
+  ${({ theme }) => theme.media.mobileSm} {
+    font-size: ${({ theme }) => theme.typography.fontSizes['2xl']};
+  }
 `
 
-const Intro = styled.div`
-  color: ${({ theme }) => theme.colors.light.secondary};
+const Intro = styled.div<{ $isDark: boolean }>`
+  color: ${({ $isDark, theme }) => $isDark ? theme.colors.dark.secondary : theme.colors.light.secondary};
   font-size: ${({ theme }) => theme.typography.fontSizes.base};
 `
 
@@ -41,6 +58,10 @@ const Description = styled.p<{ $isDark: boolean }>`
   font-size: ${({ theme }) => theme.typography.fontSizes.lg};
   line-height: ${({ theme }) => theme.typography.lineHeights.relaxed};
   color: ${({ $isDark, theme }) => $isDark ? theme.colors.dark.foreground : theme.colors.light.foreground};
+
+  ${({ theme }) => theme.media.mobile} {
+    font-size: ${({ theme }) => theme.typography.fontSizes.base};
+  }
 `
 
 const Paragraph = styled.p<{ $isDark: boolean }>`
@@ -48,6 +69,11 @@ const Paragraph = styled.p<{ $isDark: boolean }>`
   margin-bottom: 50px;
   line-height: ${({ theme }) => theme.typography.lineHeights.relaxed};
   color: ${({ $isDark, theme }) => $isDark ? theme.colors.dark.foreground : theme.colors.light.foreground};
+
+  ${({ theme }) => theme.media.mobile} {
+    font-size: ${({ theme }) => theme.typography.fontSizes.base};
+    margin-bottom: 30px;
+  }
 `
 
 export function Text({ children, variant = 'paragraph', className }: TextProps) {
@@ -59,7 +85,7 @@ export function Text({ children, variant = 'paragraph', className }: TextProps) 
     case 'h2':
       return <H2 $isDark={isDark} className={className}>{children}</H2>
     case 'intro':
-      return <Intro className={className}>{children}</Intro>
+      return <Intro $isDark={isDark} className={className}>{children}</Intro>
     case 'description':
       return <Description $isDark={isDark} className={className}>{children}</Description>
     case 'paragraph':

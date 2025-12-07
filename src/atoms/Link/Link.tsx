@@ -19,7 +19,7 @@ const NavLink = styled(motion.a)<{ $isDark: boolean }>`
   position: relative;
 
   &:hover {
-    color: ${({ theme }) => theme.colors.light.primary};
+    color: ${({ $isDark, theme }) => $isDark ? theme.colors.dark.primary : theme.colors.light.primary};
   }
 
   &::before {
@@ -29,7 +29,7 @@ const NavLink = styled(motion.a)<{ $isDark: boolean }>`
     left: 0;
     width: 0;
     height: 2px;
-    background: ${({ theme }) => theme.colors.light.primary};
+    background: ${({ $isDark, theme }) => $isDark ? theme.colors.dark.primary : theme.colors.light.primary};
     transition: width 0.3s ease;
   }
 
@@ -38,8 +38,8 @@ const NavLink = styled(motion.a)<{ $isDark: boolean }>`
   }
 `
 
-const ProjectLink = styled(motion.a)`
-  color: ${({ theme }) => theme.colors.light.secondary};
+const ProjectLink = styled(motion.a)<{ $isDark: boolean }>`
+  color: ${({ $isDark, theme }) => $isDark ? theme.colors.dark.secondary : theme.colors.light.secondary};
   text-decoration: none;
   font-size: ${({ theme }) => theme.typography.fontSizes.md};
   transition: all 0.3s ease;
@@ -57,7 +57,7 @@ export function Link({ target = '_self', children, href, variant = 'nav' }: Link
 
   if (variant === 'project') {
     return (
-      <ProjectLink target={target} href={href} whileHover={{ x: 5 }}>
+      <ProjectLink $isDark={isDark} target={target} href={href} whileHover={{ x: 5 }}>
         {children}
       </ProjectLink>
     )

@@ -1,6 +1,7 @@
 'use client'
 
 import { Navigation } from '../../organisms/Navigation'
+import { MobileNavigation } from '../../organisms/MobileNavigation'
 import { Hero } from '../../organisms/Hero'
 import { SkillsGrid } from '../../organisms/SkillsGrid'
 import { ProjectsCarousel } from '../../organisms/ProjectsCarousel'
@@ -28,6 +29,7 @@ export function MainTemplate() {
   return (
     <>
       <Navigation />
+      <MobileNavigation />
       <Container>
         {/*<CodeBackground />*/}
         <Hero />

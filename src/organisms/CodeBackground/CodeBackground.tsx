@@ -1,6 +1,7 @@
 'use client'
 
 import styled from 'styled-components'
+import { useTheme } from '../../hooks/useTheme'
 
 const BackgroundWrapper = styled.div`
   position: fixed;
@@ -17,9 +18,9 @@ const BackgroundWrapper = styled.div`
   pointer-events: none;
 `
 
-const CodeLine = styled.div<{ $delay?: number }>`
+const CodeLine = styled.div<{ $delay?: number; $isDark: boolean }>`
   white-space: nowrap;
-  color: ${({ theme }) => theme.colors.light.primary};
+  color: ${({ $isDark, theme }) => $isDark ? theme.colors.dark.primary : theme.colors.light.primary};
   animation: scroll 20s linear infinite;
   animation-delay: ${({ $delay }) => $delay || 0}s;
 
@@ -40,10 +41,12 @@ const codeSnippets = [
 ]
 
 export function CodeBackground() {
+  const { isDark } = useTheme()
+
   return (
     <BackgroundWrapper>
       {codeSnippets.map((snippet, index) => (
-        <CodeLine key={index} $delay={index * 2}>
+        <CodeLine key={index} $delay={index * 2} $isDark={isDark}>
           {snippet}
         </CodeLine>
       ))}

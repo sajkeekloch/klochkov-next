@@ -8,12 +8,19 @@ export const PageContainer = styled(motion.section)`
     display: flex;
     gap: 25px;
     flex-direction: column;
-    padding-top: 100px;
     box-sizing: border-box;
     scroll-snap-align: start;
     scroll-snap-stop: always;
 
     ${({ theme }) => theme.media.tablet} {
         width: 100%;
+        gap: 20px;
+    }
+
+    ${({ theme }) => theme.media.mobile} {
+        width: 100%;
+        gap: 15px;
+        min-height: 100vh;
+        height: auto;
     }
 `

@@ -15,10 +15,15 @@ const TitleWrapper = styled(motion.h2)<{ $isDark: boolean }>`
   color: ${({ $isDark, theme }) => $isDark ? theme.colors.dark.textPrimary : theme.colors.light.textPrimary};
   font-size: ${({ theme }) => theme.typography.fontSizes['3xl']};
   font-weight: ${({ theme }) => theme.typography.fontWeights.semibold};
-  margin-bottom: 50px;
+  position: sticky;
+  z-index: 150;
+  background: transparent;
+  padding: 20px 0;
+  margin: 0;
 
   ${({ theme }) => theme.media.tablet} {
     font-size: ${({ theme }) => theme.typography.fontSizes['2xl']};
+    top: 20px;
   }
 `
 

@@ -1,12 +1,13 @@
 'use client'
 
 import styled from 'styled-components'
+import { useTheme } from '../../hooks/useTheme'
 
-const StyledCursor = styled.span`
+const StyledCursor = styled.span<{ $isDark: boolean }>`
   display: inline-block;
   width: 3px;
   height: 85px;
-  background: ${({ theme }) => theme.colors.light.primary};
+  background: ${({ $isDark, theme }) => $isDark ? theme.colors.dark.primary : theme.colors.light.primary};
   margin-left: 5px;
   vertical-align: middle;
   animation: blink 1s infinite;
@@ -21,10 +22,20 @@ const StyledCursor = styled.span`
   }
 
   ${({ theme }) => theme.media.tablet} {
-    height: 40px;
+    height: 50px;
+  }
+
+  ${({ theme }) => theme.media.mobile} {
+    height: 35px;
+    width: 2px;
+  }
+
+  ${({ theme }) => theme.media.mobileSm} {
+    height: 28px;
   }
 `
 
 export function Cursor() {
-  return <StyledCursor />
+  const { isDark } = useTheme()
+  return <StyledCursor $isDark={isDark} />
 }

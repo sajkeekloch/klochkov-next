@@ -2,13 +2,13 @@ export const colors = {
   light: {
     background: '#ffffff',
     foreground: '#4a4a4a',
-    primary: '#14A5EB',
-    secondary: '#EB5A14',
+    primary: '#EB5A14',
+    secondary: '#14A5EB',
     textPrimary: '#000000',
     textSecondary: '#2a2a2a',
     cardBackground: '#f8f8f8',
     border: '#e0e0e0',
-    shadow: 'rgba(20, 165, 235, 0.2)',
+    shadow: 'rgba(235, 90, 20, 0.2)',
     navBackground: 'rgba(255, 255, 255, 0.85)',
   },
   dark: {

@@ -26,8 +26,18 @@ const Card = styled(motion.div)<{ $isDark: boolean }>`
 
   &:hover {
     transform: translateY(-5px);
-    border-color: ${({ theme }) => theme.colors.light.primary};
-    box-shadow: 0 20px 40px ${({ theme }) => theme.colors.light.shadow};
+    border-color: ${({ $isDark, theme }) => $isDark ? theme.colors.dark.primary : theme.colors.light.primary};
+    box-shadow: 0 20px 40px ${({ $isDark, theme }) => $isDark ? theme.colors.dark.shadow : theme.colors.light.shadow};
+  }
+
+  ${({ theme }) => theme.media.mobile} {
+    padding: 25px;
+    min-height: 350px;
+  }
+
+  ${({ theme }) => theme.media.mobileSm} {
+    padding: 20px;
+    min-height: 320px;
   }
 `
 
@@ -36,6 +46,11 @@ const Title = styled.h3<{ $isDark: boolean }>`
   font-size: ${({ theme }) => theme.typography.fontSizes['2xl']};
   margin-bottom: 15px;
   font-weight: ${({ theme }) => theme.typography.fontWeights.semibold};
+
+  ${({ theme }) => theme.media.mobile} {
+    font-size: ${({ theme }) => theme.typography.fontSizes.xl};
+    margin-bottom: 12px;
+  }
 `
 
 const Description = styled.p<{ $isDark: boolean }>`
@@ -43,6 +58,11 @@ const Description = styled.p<{ $isDark: boolean }>`
   margin-bottom: 20px;
   line-height: ${({ theme }) => theme.typography.lineHeights.relaxed};
   font-size: ${({ theme }) => theme.typography.fontSizes.base};
+
+  ${({ theme }) => theme.media.mobile} {
+    font-size: ${({ theme }) => theme.typography.fontSizes.sm};
+    margin-bottom: 15px;
+  }
 `
 
 const TechTags = styled.div`
@@ -50,12 +70,22 @@ const TechTags = styled.div`
   flex-wrap: wrap;
   gap: 15px;
   margin-bottom: 20px;
+
+  ${({ theme }) => theme.media.mobile} {
+    gap: 10px;
+    margin-bottom: 15px;
+  }
 `
 
 const Links = styled.div`
   display: flex;
   gap: 20px;
   margin-top: auto;
+
+  ${({ theme }) => theme.media.mobile} {
+    flex-direction: column;
+    gap: 12px;
+  }
 `
 
 export function ProjectCard({ project }: ProjectCardProps) {

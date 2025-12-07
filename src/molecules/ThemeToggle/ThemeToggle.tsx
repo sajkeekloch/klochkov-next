@@ -18,8 +18,8 @@ const ToggleButton = styled(motion.button)<{ $isDark: boolean }>`
   color: ${({ $isDark, theme }) => $isDark ? theme.colors.dark.textSecondary : theme.colors.light.textSecondary};
 
   &:hover {
-    border-color: ${({ theme }) => theme.colors.light.primary};
-    color: ${({ theme }) => theme.colors.light.primary};
+    border-color: ${({ $isDark, theme }) => $isDark ? theme.colors.dark.primary : theme.colors.light.primary};
+    color: ${({ $isDark, theme }) => $isDark ? theme.colors.dark.primary : theme.colors.light.primary};
   }
 `
 

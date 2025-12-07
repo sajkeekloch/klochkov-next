@@ -15,8 +15,8 @@ const StyledButton = styled(motion.a)<{ $isDark: boolean }>`
   display: inline-block;
   padding: 18px 50px;
   background: transparent;
-  color: ${({ theme }) => theme.colors.light.primary};
-  border: 1px solid ${({ theme }) => theme.colors.light.primary};
+  color: ${({ $isDark, theme }) => $isDark ? theme.colors.dark.primary : theme.colors.light.primary};
+  border: 1px solid ${({ $isDark, theme }) => $isDark ? theme.colors.dark.primary : theme.colors.light.primary};
   border-radius: 4px;
   text-decoration: none;
   font-size: ${({ theme }) => theme.typography.fontSizes.md};
@@ -25,13 +25,22 @@ const StyledButton = styled(motion.a)<{ $isDark: boolean }>`
   transition: all 0.3s ease;
 
   &:hover {
-    background: rgba(20, 165, 235, 0.1);
+    background: ${({ $isDark }) => $isDark ? 'rgba(20, 165, 235, 0.1)' : 'rgba(235, 90, 20, 0.1)'};
     transform: translateY(-3px);
-    box-shadow: 0 10px 30px ${({ theme }) => theme.colors.light.shadow};
+    box-shadow: 0 10px 30px ${({ $isDark, theme }) => $isDark ? theme.colors.dark.shadow : theme.colors.light.shadow};
   }
 
   &:active {
     transform: translateY(-1px);
+  }
+
+  ${({ theme }) => theme.media.mobile} {
+    padding: 14px 35px;
+    font-size: ${({ theme }) => theme.typography.fontSizes.sm};
+  }
+
+  ${({ theme }) => theme.media.mobileSm} {
+    padding: 12px 30px;
   }
 `
 
