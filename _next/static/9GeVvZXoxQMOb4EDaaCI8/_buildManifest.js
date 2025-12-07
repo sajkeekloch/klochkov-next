@@ -1,9 +1,9 @@
 self.__BUILD_MANIFEST = {
   "/HomePage": [
-    "static/chunks/b50072b897951894.js"
+    "static/chunks/3a6193d3e62b23d7.js"
   ],
   "/HomePage/HomePage": [
-    "static/chunks/7a2f7ac4ff02dd19.js"
+    "static/chunks/8a47a8b945e30ada.js"
   ],
   "/_error": [
     "static/chunks/1c1ff0bc77a49953.js"
