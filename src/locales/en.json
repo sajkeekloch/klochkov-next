@@ -1,0 +1,72 @@
+{
+  "navigation": {
+    "about": "hello",
+    "skills": "skills",
+    "projects": "projects",
+    "contact": "contact"
+  },
+  "hero": {
+    "greeting": "hello, I'm",
+    "name": "Aleksander.",
+    "description": "Frontend developer with 4+ years of experience, specializing in React, TypeScript, building modern web applications.",
+    "cta": "Let's make something awesome!"
+  },
+  "projects": {
+    "title": "Projects",
+    "viewProject": "Learn more →",
+    "viewGithub": "GitHub →",
+    "technologies": "Technologies",
+    "easydocs": {
+      "title": "EasyDocs",
+      "description": "Electronic document management platform for HR processes. Frontend development and support, performance optimization.",
+      "technologies": ["React", "TypeScript", "effector", "REST API"]
+    },
+    "easydocsApp": {
+      "title": "EasyDocs app",
+      "description": "React Native application with WebView integration. Implementation of complex authentication logic and cookie management between native application and web components.",
+      "technologies": ["React Native", "WebView", "Native Modules"]
+    },
+    "totalResearch": {
+      "title": "Total research",
+      "description": "Migration of monolithic CRM to micro-frontend architecture. Actively participated in the transition from legacy Angular monolith to modular React + TS architecture using SPA.",
+      "technologies": ["React", "Redux", "GitLab", "SCSS", "Docker", "Webpack"]
+    },
+    "portfolio": {
+      "title": "Portfolio Projects",
+      "description": "Collection of personal projects and experiments with new technologies. From UI components to full-fledged web applications.",
+      "technologies": ["Next.js", "Tailwind", "Framer Motion"]
+    }
+  },
+  "skills": {
+    "title": "My Skills",
+    "frontend": {
+      "name": "Frontend",
+      "items": ["React / Next.js", "TypeScript", "JavaScript (ES6+)", "HTML5 / CSS3", "Tailwind CSS"]
+    },
+    "mobile": {
+      "name": "Mobile",
+      "items": ["React Native", "WebView Integration", "Responsive Design"]
+    },
+    "tools": {
+      "name": "Tools & Others",
+      "items": ["GitHub / GitLab", "Webpack", "REST API", "Redux / effector", "Jest / React Testing Library"]
+    }
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "description": "I'm open to discuss new projects, creative ideas, or opportunities to be part of your team.",
+    "telegram": "Telegram",
+    "email": "Email",
+    "linkedin": "LinkedIn"
+  },
+  "theme": {
+    "light": "Light",
+    "dark": "Dark",
+    "toggle": "Toggle theme"
+  },
+  "language": {
+    "ru": "Русский",
+    "en": "English",
+    "toggle": "Change language"
+  }
+}
