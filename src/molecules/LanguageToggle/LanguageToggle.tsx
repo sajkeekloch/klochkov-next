@@ -27,6 +27,14 @@ const ToggleButton = styled(motion.button)<{ $isDark: boolean }>`
   }
 `
 
+const TextContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 20px;
+  width: 20px;
+`
+
 export function LanguageToggle() {
   const { locale, setLocale, t } = useLanguage()
   const { isDark } = useTheme()
@@ -44,7 +52,9 @@ export function LanguageToggle() {
       aria-label={t('language.toggle')}
       title={t('language.toggle')}
     >
-      {locale.toUpperCase()}
+      <TextContainer>
+        {locale.toUpperCase()}
+      </TextContainer>
     </ToggleButton>
   )
 }
