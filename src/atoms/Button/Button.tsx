@@ -9,6 +9,8 @@ interface ButtonProps {
   onClick?: () => void
   href?: string
   variant?: 'primary' | 'outline'
+  target?: '_blank' | '_self'
+  rel?: string
 }
 
 const StyledButton = styled(motion.a)<{ $isDark: boolean }>`
@@ -44,7 +46,7 @@ const StyledButton = styled(motion.a)<{ $isDark: boolean }>`
   }
 `
 
-export function Button({ children, onClick, href, variant = 'outline' }: ButtonProps) {
+export function Button({ children, onClick, href, variant = 'outline', target, rel }: ButtonProps) {
   const { isDark } = useTheme()
 
   return (
@@ -52,6 +54,8 @@ export function Button({ children, onClick, href, variant = 'outline' }: ButtonP
       $isDark={isDark}
       href={href || '#'}
       onClick={onClick}
+      target={target}
+      rel={rel}
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
     >

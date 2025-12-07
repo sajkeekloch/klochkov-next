@@ -6,9 +6,9 @@ const nextConfig: NextConfig = {
   compiler: {
     styledComponents: true,
   },
-  // basePath: '/klochkov',
-  // assetPrefix: '/klochkov/',
-  // output: 'export', // для статического экспорта
+  basePath: '/klochkov-next',
+  assetPrefix: '/klochkov-next/',
+  output: 'export', // для статического экспорта
 };
 
 export default nextConfig;

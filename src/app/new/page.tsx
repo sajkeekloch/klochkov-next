@@ -3,7 +3,7 @@ import { heroText } from '@/constants/heroText'
 
 export const metadata = {
   title: 'Александр Клочков - Frontend Developer',
-  description: her  oText,
+  description: heroText,
 }
 
 export default function NewDesignPage() {

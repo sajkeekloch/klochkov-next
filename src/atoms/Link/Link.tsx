@@ -8,7 +8,8 @@ interface LinkProps {
   children: React.ReactNode
   href: string
   variant?: 'nav' | 'project'
-  target?: '_blank' | '_self',
+  target?: '_blank' | '_self'
+  onClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void
 }
 
 const NavLink = styled(motion.a)<{ $isDark: boolean }>`
@@ -52,19 +53,19 @@ const ProjectLink = styled(motion.a)<{ $isDark: boolean }>`
   }
 `
 
-export function Link({ target = '_self', children, href, variant = 'nav' }: LinkProps) {
+export function Link({ target = '_self', children, href, variant = 'nav', onClick }: LinkProps) {
   const { isDark } = useTheme()
 
   if (variant === 'project') {
     return (
-      <ProjectLink $isDark={isDark} target={target} href={href} whileHover={{ x: 5 }}>
+      <ProjectLink $isDark={isDark} target={target} href={href} onClick={onClick} whileHover={{ x: 5 }}>
         {children}
       </ProjectLink>
     )
   }
 
   return (
-    <NavLink target={target} href={href} $isDark={isDark}>
+    <NavLink target={target} href={href} onClick={onClick} $isDark={isDark}>
       {children}
     </NavLink>
   )
