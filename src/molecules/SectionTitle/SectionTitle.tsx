@@ -5,7 +5,6 @@ import { motion } from 'framer-motion'
 import { useTheme } from '../../hooks/useTheme'
 
 interface SectionTitleProps {
-  number: string
   children: React.ReactNode
 }
 
@@ -27,13 +26,12 @@ const TitleWrapper = styled(motion.h2)<{ $isDark: boolean }>`
   }
 `
 
-export function SectionTitle({ number, children }: SectionTitleProps) {
+export function SectionTitle({ children }: SectionTitleProps) {
   const { isDark } = useTheme()
 
   return (
     <TitleWrapper
       $isDark={isDark}
-      number={number}
       initial={{ opacity: 0, x: -20 }}
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true }}

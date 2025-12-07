@@ -13,3 +13,5 @@ export function HomePage() {
     </LanguageProvider>
   )
 }
+
+export default HomePage

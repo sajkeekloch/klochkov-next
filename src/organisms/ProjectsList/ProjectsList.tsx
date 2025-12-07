@@ -52,7 +52,7 @@ const projects: Project[] = [
 export function ProjectsList() {
   return (
     <ProjectsSection id="projects">
-      <SectionTitle number="2">Проекты</SectionTitle>
+      <SectionTitle>Проекты</SectionTitle>
       {projects.map((project, index) => (
         <ProjectCard key={index} project={project} />
       ))}
